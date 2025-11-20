@@ -26,7 +26,7 @@ A comprehensive AI-powered legal assistant platform that simplifies contracts, p
 
 ## 🚀 Live Demo
 
-**🌐 [View Live Application](https://demystify-documentation.vercel.app)**
+**🌐 [View Live Application](https://demystify-legal-documents.vercel.app)**
 
 ## 🛠️ Technology Stack
 
