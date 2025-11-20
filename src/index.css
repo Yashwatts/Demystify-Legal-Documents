@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Dark AI Theme */
+    --background: 222 47% 3%;
+    --foreground: 210 20% 95%;
+
+    --card: 222 47% 5%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 222 47% 5%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 199 89% 48%;
+    --primary-foreground: 222 47% 3%;
+
+    --secondary: 222 47% 8%;
+    --secondary-foreground: 210 20% 95%;
+
+    --muted: 222 47% 8%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 142 71% 45%;
+    --accent-foreground: 222 47% 3%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 20% 95%;
+
+    --border: 222 47% 12%;
+    --input: 222 47% 8%;
+    --ring: 199 89% 48%;
+
+    --radius: 0.75rem;
+
+    /* AI Theme Colors */
+    --electric-blue: 199 89% 48%;
+    --neon-green: 142 71% 45%;
+    --cyber-purple: 271 91% 65%;
+    --neural-orange: 25 95% 53%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--electric-blue)), hsl(var(--cyber-purple)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(222 47% 7%));
+    --gradient-glow: radial-gradient(circle at center, hsl(var(--electric-blue) / 0.3), transparent 70%);
+    
+    /* Shadows & Effects */
+    --shadow-glow: 0 0 30px hsl(var(--electric-blue) / 0.3);
+    --shadow-card: 0 8px 32px hsl(222 47% 1% / 0.5);
+    --shadow-intense: 0 0 50px hsl(var(--electric-blue) / 0.5);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Keep same values as root since we're already dark */
+    --background: 222 47% 3%;
+    --foreground: 210 20% 95%;
+    --card: 222 47% 5%;
+    --card-foreground: 210 20% 95%;
+    --popover: 222 47% 5%;
+    --popover-foreground: 210 20% 95%;
+    --primary: 199 89% 48%;
+    --primary-foreground: 222 47% 3%;
+    --secondary: 222 47% 8%;
+    --secondary-foreground: 210 20% 95%;
+    --muted: 222 47% 8%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 142 71% 45%;
+    --accent-foreground: 222 47% 3%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 20% 95%;
+    --border: 222 47% 12%;
+    --input: 222 47% 8%;
+    --ring: 199 89% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+    background-image: 
+      radial-gradient(circle at 20% 20%, hsl(var(--electric-blue) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, hsl(var(--cyber-purple) / 0.1) 0%, transparent 50%);
+  }
+
+  /* Typography */
+  .font-mono-heading {
+    @apply font-mono font-bold tracking-tight;
+  }
+
+  .font-inter {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Typewriter Effect */
+  .typewriter {
+    overflow: hidden;
+    border-right: 0.15em solid hsl(var(--electric-blue));
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: hsl(var(--electric-blue)); }
+  }
+
+  /* Glow Effects */
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .glow-intense {
+    box-shadow: var(--shadow-intense);
+  }
+
+  /* Hover Animations */
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-card), var(--shadow-glow);
+  }
+
+  /* Neural Network Animation */
+  .neural-bg {
+    background: 
+      radial-gradient(circle at 25% 25%, hsl(var(--electric-blue) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, hsl(var(--neon-green) / 0.1) 0%, transparent 50%);
+    animation: neural-pulse 4s ease-in-out infinite alternate;
+  }
+
+  @keyframes neural-pulse {
+    0% { 
+      background-size: 100% 100%, 100% 100%;
+    }
+    100% { 
+      background-size: 120% 120%, 120% 120%;
+    }
+  }
+}
